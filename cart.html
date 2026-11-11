@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="dark" lang="lo">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#1f0f0d" name="theme-color"/>
+<title>ກະຕ່າສິນຄ້າ | Velvet & Roast Cafe</title>
+<link href="assets/images/logo.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<!-- Noto Sans Lao added so Lao script renders correctly (Plus Jakarta Sans / Space Grotesk have no Lao glyphs) -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Noto+Sans+Lao:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/js/tailwind-config.js"></script>
+<link href="assets/css/app.css" rel="stylesheet"/>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.4)] pt-safe">
+<div class="h-20 max-w-[480px] mx-auto px-margin flex flex-col justify-center gap-space-2xs">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<a aria-label="ໜ້າຫຼັກ" href="index.html" class="shrink-0"><img alt="Velvet &amp; Roast Cafe Logo" class="h-8 w-8 object-contain" src="assets/images/logo.svg"/></a>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-2xs">
+<span class="font-headline-sm text-headline-sm text-text-primary truncate tracking-tight">VELVET &amp; ROAST</span>
+<span class="px-space-2xs py-[2px] rounded bg-crimson-dim text-crimson-glow font-label-sm text-label-sm uppercase font-bold">QR</span>
+</div>
+<div class="flex items-center gap-1 min-w-0">
+<span class="font-label-md text-label-md text-secondary truncate">Cart</span>
+<span class="text-text-dim text-[10px]">•</span>
+<a class="flex items-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" href="index.html#branch">
+<span class="material-symbols-outlined text-[14px] text-amber-soft">storefront</span>
+<span class="font-body-sm text-body-sm text-text-muted truncate max-w-[140px]" data-ctx="branch-table"></span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</a>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-2xs shrink-0">
+<button aria-label="Change Language" class="h-9 px-space-xs rounded-full bg-card-elevated flex items-center justify-center gap-1 text-on-surface-variant hover:text-text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">language</span><span class="font-label-sm text-label-sm font-bold uppercase">LA</span></button>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full max-w-[480px] mx-auto pt-20 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-6 gap-space-md">
+<div class="relative overflow-hidden rounded-xl bg-surface-container-high p-space-sm shadow-md">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-primary-container/10 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between relative z-10">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-lg bg-wine-dark flex items-center justify-center text-primary-container shadow-sm"><span class="material-symbols-outlined text-[22px]">table_restaurant</span></div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary tracking-tight"><span data-ctx="table"></span> • Dine-in</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-amber-soft">near_me</span><span data-ctx="branch-en"></span></span>
+</div>
+</div>
+<div class="flex items-center gap-1 px-space-xs py-1 rounded-full bg-crimson-dim text-crimson-glow font-label-sm text-label-sm uppercase"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span>QR ສັ່ງດ່ວນ</span></div>
+</div>
+</div>
+
+<div class="flex items-center justify-between pt-space-2xs">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-text-primary">ລາຍການໃນກະຕ່າ</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-md text-label-md" id="cartCountLabel"></span>
+</div>
+<button class="font-label-sm text-label-sm text-text-dim hover:text-error transition-colors flex items-center gap-1" id="clearCartBtn" type="button"><span class="material-symbols-outlined text-[14px]">delete_sweep</span>ລຶບທັງໝົດ</button>
+</div>
+
+<div class="flex flex-col gap-space-sm" id="cartListContainer"></div>
+
+<div class="hidden flex-col items-center text-center gap-space-sm rounded-xl bg-card-elevated p-space-lg shadow-md" id="cartEmpty">
+<div class="w-14 h-14 rounded-full bg-crimson-dim text-crimson-glow flex items-center justify-center"><span class="material-symbols-outlined text-[30px]">shopping_bag</span></div>
+<p class="font-headline-sm text-headline-sm text-text-primary">ກະຕ່າຫວ່າງ</p>
+<a class="px-space-md py-3 rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-lg" href="menu.html">ເບິ່ງເມນູ</a>
+</div>
+
+<div id="checkoutArea" class="flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-2xs mt-1">
+<label class="font-label-lg text-label-lg text-text-primary flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-primary-container">room_service</span>ວິທີຮັບສິນຄ້າ (Dining Option)</label>
+<div class="grid grid-cols-2 p-1 rounded-xl bg-surface-container-lowest shadow-inner gap-1">
+<button class="flex items-center justify-center gap-2 py-2.5 px-space-xs rounded-lg transition-all" id="dineInBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+<div class="flex flex-col items-start leading-tight"><span class="font-label-md text-label-md font-bold">ກິນໃນຮ້ານ</span><span class="font-label-sm text-[10px] opacity-80"><span data-ctx="table"></span> (Dine-in)</span></div>
+</button>
+<button class="flex items-center justify-center gap-2 py-2.5 px-space-xs rounded-lg transition-all" id="takeawayBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<div class="flex flex-col items-start leading-tight"><span class="font-label-md text-label-md font-bold">ເອົາກັບບ້ານ</span><span class="font-label-sm text-[10px] opacity-80">Takeaway</span></div>
+</button>
+</div>
+</div>
+
+<div class="rounded-xl bg-card-elevated p-space-md shadow-md flex flex-col gap-space-sm relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-crimson-dim text-crimson-glow flex items-center justify-center"><span class="material-symbols-outlined text-[16px]">badge</span></div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary">ຂໍ້ມູນຕິດຕໍ່ຮັບເຄື່ອງ</h4>
+</div>
+<span class="font-label-sm text-label-sm text-amber-soft bg-amber-dim px-2 py-0.5 rounded-full">ບໍ່ຕ້ອງລົງທະບຽນ</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div>
+<label class="font-label-md text-label-md text-text-muted block mb-1" for="custName">ຊື່ຜູ້ສັ່ງ (Customer Name)</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-text-dim text-[18px] pointer-events-none">person_outline</span>
+<input autocomplete="name" class="w-full bg-graphite-surface text-text-primary font-body-md text-body-md rounded-lg pl-10 pr-3 py-2.5 focus:outline-none focus:bg-surface-container-highest transition-colors" id="custName" type="text"/>
+</div>
+<p class="hidden text-error font-body-sm text-body-sm mt-1" id="custNameErr">ກະລຸນາໃສ່ຊື່</p>
+</div>
+<div>
+<label class="font-label-md text-label-md text-text-muted block mb-1" for="custPhone">ເບີໂທຕິດຕໍ່ (Phone Number)</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-text-dim text-[18px] pointer-events-none">call</span>
+<input autocomplete="tel" class="w-full bg-graphite-surface text-text-primary font-body-md text-body-md rounded-lg pl-10 pr-3 py-2.5 focus:outline-none focus:bg-surface-container-highest transition-colors" id="custPhone" inputmode="tel" placeholder="020 xxxx xxxx" type="tel"/>
+</div>
+<p class="hidden text-error font-body-sm text-body-sm mt-1" id="custPhoneErr">ກະລຸນາໃສ່ເບີໂທ</p>
+</div>
+</div>
+</div>
+
+<div class="rounded-xl bg-surface-container-low p-space-sm">
+<details class="group cursor-pointer" id="noteDetails">
+<summary class="flex items-center justify-between list-none text-text-muted hover:text-text-primary transition-colors">
+<span class="font-label-md text-label-md flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">edit_note</span>ໝາຍເຫດເພີ່ມເຕີມເຖິງບາຣິສຕ້າ (Notes to barista)</span>
+<span class="material-symbols-outlined text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="mt-space-xs pt-2"><textarea class="w-full bg-obsidian-base text-text-primary font-body-sm text-body-sm rounded-lg p-2.5 resize-none focus:outline-none focus:bg-surface-container-highest transition-colors" id="custNote" placeholder="ຕົວຢ່າງ: ຂໍນ້ຳກ້ອນແຍກ, ບໍ່ເອົາຝາປິດ..." rows="2"></textarea></div>
+</details>
+</div>
+
+<div class="rounded-xl bg-surface-container-high p-space-md shadow-lg flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim">ສະຫຼຸບຍອດເງິນ (Summary)</span>
+<div class="flex items-center justify-between"><span class="font-body-md text-body-md text-text-muted">ລວມຄ່າສິນຄ້າ</span><span class="font-label-lg text-label-lg text-text-primary" id="subtotalDisplay"></span></div>
+<div class="flex items-center justify-between"><span class="font-body-md text-body-md text-text-muted">ສ່ວນຫຼຸດ (Discount)</span><span class="font-label-lg text-label-lg text-status-ready">0 ກີບ</span></div>
+<div class="flex items-center justify-between"><span class="font-body-md text-body-md text-text-muted">ຄ່າບໍລິການ (Service Tax)</span><span class="font-label-sm text-label-sm text-text-dim">ຟຣີ (0 ກີບ)</span></div>
+<div class="h-px bg-surface-variant my-1"></div>
+<div class="flex items-baseline justify-between">
+<div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-text-primary">ຍອດລວມທັງໝົດ</span><span class="font-label-sm text-label-sm text-text-dim">ລວມອາກອນມູນຄ່າເພີ່ມແລ້ວ</span></div>
+<span class="font-headline-md text-headline-md text-secondary" id="totalDisplay"></span>
+</div>
+</div>
+
+<div class="flex flex-col gap-space-xs pt-space-2xs">
+<button class="relative group overflow-hidden w-full py-4 px-space-md rounded-xl bg-gradient-to-r from-primary-container to-burgundy-deep text-on-primary-container flex items-center justify-between shadow-[0_8px_24px_rgba(220,38,38,0.45)] hover:shadow-[0_10px_30px_rgba(220,38,38,0.6)] active:scale-[0.99] transition-all duration-200" id="confirmOrderBtn" type="button">
+<div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[24px] text-on-primary-container animate-pulse">check_circle</span><span class="font-label-lg text-label-lg font-bold tracking-wide">ຢືນຢັນການສັ່ງຊື້</span></div>
+<div class="flex items-center gap-1.5 bg-black/25 px-space-xs py-1 rounded-full backdrop-blur-sm"><span class="font-price-display text-price-display text-on-primary-container whitespace-nowrap" id="ctaPriceDisplay"></span><span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span></div>
+</button>
+<div class="flex items-center justify-center gap-2 py-1 text-text-dim"><span class="material-symbols-outlined text-[14px] text-status-ready">lock</span><span class="font-label-sm text-label-sm">ກົດສັ່ງແລ້ວລະບົບຈະສົ່ງເຂົ້າບາຣິສຕ້າທັນທີ • ຊຳລະເງິນຕາມສະດວກ</span></div>
+</div>
+</div>
+
+<div aria-modal="true" class="fixed inset-0 z-[60] bg-black/80 backdrop-blur-md hidden items-center justify-center p-space-md" id="orderSuccessModal" role="dialog">
+<div class="max-w-[380px] w-full rounded-2xl bg-card-elevated p-space-lg shadow-2xl flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-status-ready/20 text-status-ready flex items-center justify-center mb-space-sm shadow-[0_0_20px_rgba(52,211,153,0.3)]"><span class="material-symbols-outlined text-[36px]">soup_kitchen</span></div>
+<h3 class="font-headline-md text-headline-md text-text-primary mb-1">ສັ່ງຊື້ສຳເລັດແລ້ວ!</h3>
+<p class="font-body-md text-body-md text-text-muted">ອໍເດີຂອງທ່ານສົ່ງໄປທີ່ເຄົາເຕີ້ແລ້ວ. ບາຣິສຕ້າກຳລັງຕຽມເຄື່ອງດື່ມ ແລະ ອາຫານໃຫ້ທ່ານ.</p>
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-sm my-space-sm flex items-center justify-between">
+<span class="font-label-md text-label-md text-text-dim">ເລກບິນ (Order ID):</span>
+<span class="font-price-display text-price-display text-secondary" id="modalOrderId"></span>
+</div>
+<a class="w-full py-3 rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-lg" href="track.html">ເບິ່ງສະຖານະອໍເດີ (Track Order)</a>
+</div>
+</div>
+</div></main>
+<nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,0,0,0.5)]"><div class="max-w-[480px] mx-auto flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-1 w-16 h-12 transition-colors min-w-[44px] min-h-[44px] text-text-dim hover:text-on-surface" href="menu.html"><div class="relative"><span class="material-symbols-outlined text-[22px]">restaurant_menu</span></div><span class="font-label-md text-label-md whitespace-nowrap">ເມນູ</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 w-16 h-12 transition-colors min-w-[44px] min-h-[44px] text-primary-container font-semibold" href="cart.html"><div class="relative"><span class="material-symbols-outlined text-[22px]">local_mall</span><span class="absolute -top-1 -right-2 min-w-[18px] h-[18px] px-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm flex items-center justify-center leading-none" data-cart-badge style="display:none">0</span></div><span class="font-label-md text-label-md whitespace-nowrap">ກະຕ່າ</span></a><a class="flex flex-col items-center justify-center gap-1 w-16 h-12 transition-colors min-w-[44px] min-h-[44px] text-text-dim hover:text-on-surface" href="track.html"><div class="relative"><span class="material-symbols-outlined text-[22px]">receipt_long</span></div><span class="font-label-md text-label-md whitespace-nowrap">ສະຖານະອໍເດີ</span></a><a class="flex flex-col items-center justify-center gap-1 w-16 h-12 transition-colors min-w-[44px] min-h-[44px] text-text-dim hover:text-on-surface" href="contact.html"><div class="relative"><span class="material-symbols-outlined text-[22px]">support_agent</span></div><span class="font-label-md text-label-md whitespace-nowrap">ຕິດຕໍ່ຮ້ານ</span></a></div></nav>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/cart.js"></script>
+</body>
+</html>

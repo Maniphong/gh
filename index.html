@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="dark" lang="lo">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#1f0f0d" name="theme-color"/>
+<title>Velvet & Roast Cafe | ສະແກນ QR ສັ່ງເຄື່ອງດື່ມ</title>
+<link href="assets/images/logo.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<!-- Noto Sans Lao added so Lao script renders correctly (Plus Jakarta Sans / Space Grotesk have no Lao glyphs) -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Noto+Sans+Lao:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/js/tailwind-config.js"></script>
+<link href="assets/css/app.css" rel="stylesheet"/>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<main class="flex flex-col relative w-full max-w-[480px] mx-auto bg-surface min-h-screen px-margin pt-space-xl pb-space-xl gap-space-lg">
+<section class="flex flex-col items-center text-center gap-space-xs pt-space-lg">
+<div class="relative">
+<div class="absolute inset-0 rounded-full bg-primary-container/30 blur-2xl"></div>
+<img alt="Velvet &amp; Roast Cafe Logo" class="relative w-24 h-24 object-contain" src="assets/images/logo.svg"/>
+</div>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile text-text-primary tracking-tight">VELVET &amp; ROAST</h1>
+<p class="font-body-lg text-body-lg text-secondary">ຍິນດີຕ້ອນຮັບ</p>
+<span class="px-space-sm py-1 rounded-full bg-amber-dim text-amber-soft font-label-sm text-label-sm">ບໍ່ຕ້ອງລົງທະບຽນ</span>
+</section>
+
+<section class="flex flex-col gap-space-xs" id="branch">
+<label class="font-label-lg text-label-lg text-text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary-container">storefront</span>
+ເລືອກສາຂາ (Branch)
+</label>
+<div class="flex flex-col gap-space-xs" id="branchList"></div>
+</section>
+
+<section class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-text-primary flex items-center gap-1.5" for="tableInput">
+<span class="material-symbols-outlined text-[18px] text-primary-container">table_restaurant</span>
+ເລກໂຕະ (Table)
+</label>
+<input class="w-full bg-graphite-surface text-text-primary font-body-md text-body-md rounded-lg px-4 py-3 focus:outline-none focus:bg-surface-container-highest transition-colors" id="tableInput" inputmode="numeric" maxlength="3" placeholder="05" type="text"/>
+</section>
+
+<a class="w-full py-4 px-space-md rounded-xl bg-gradient-to-r from-primary-container to-burgundy-deep text-on-primary-container flex items-center justify-center gap-space-xs shadow-[0_8px_24px_rgba(220,38,38,0.45)] active:scale-[0.99] transition-all font-label-lg text-label-lg font-bold" href="menu.html" id="startBtn">
+<span class="material-symbols-outlined text-[22px]">restaurant_menu</span>
+<span>ເບິ່ງເມນູ &amp; ສັ່ງເລີຍ</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</main>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+/* Velvet & Roast Cafe - shared styles */
+html, body {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans Lao', system-ui, sans-serif;
+}
+/* Lao script needs a little extra line height so stacked vowel/tone marks are not clipped */
+:lang(lo) { line-height: 1.55; }
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* toast */
+#vr-toast {
+  position: fixed; left: 50%; bottom: 96px; transform: translate(-50%, 16px);
+  max-width: min(90vw, 440px); padding: 10px 16px; border-radius: 9999px;
+  background: #382523; color: #F4F4F5; font-size: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.6);
+  opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 100; text-align: center;
+}
+#vr-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* base (moved from the inline <style> of the original screens) */
+html, body { margin: 0; padding: 0; background-color: #1f0f0d; }
+body { overscroll-behavior: none; min-height: max(884px, 100dvh); }
+.pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+.pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+main > :first-child { margin-top: 0 !important; }
+main > :last-child { margin-bottom: 0 !important; }
+::-webkit-scrollbar { display: none; }
